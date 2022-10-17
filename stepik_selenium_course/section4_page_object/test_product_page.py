@@ -69,3 +69,35 @@ def test_guest_cant_see_product_in_basket_opened_from_product_page(browser):
     page.open()
     page.go_to_basket()
     page.should_be_empty_basket()
+
+
+"""Мы уже немного говорили про независимость от контента в предыдущих шагах — идеальным решением было бы везде, где мы 
+работаем со страницей продукта, создавать новый товар в нашем интернет-магазине перед тестом и удалять по завершении 
+теста. К сожалению, наш интернет-магазин пока не имеет возможности создавать объекты по API, но в идеальном мире мы бы 
+написали вот такой тест-класс в файле test_product_page.py:"""
+
+
+# @pytest.mark.login
+# class TestLoginFromProductPage():
+#     @pytest.fixture(scope="function", autouse=True)
+#     def setup(self):
+#         self.product = ProductFactory(title="Best book created by robot")
+#         # создаем по апи
+#         self.link = self.product.link
+#         yield
+#         # после этого ключевого слова начинается teardown
+#         # выполнится после каждого теста в классе
+#         # удаляем те данные, которые мы создали
+#         self.product.delete()
+#
+#     def test_guest_can_go_to_login_page_from_product_page(self, browser):
+#         page = ProductPage(browser, self.link)
+#         # дальше обычная реализация теста
+#
+#     def test_guest_should_see_login_link(self, browser):
+#         page = ProductPage(browser, self.link)
+#         # дальше обычная реализация теста
+
+
+"""Работа с API выходит за рамки этого курса, но знание о том, что можно группировать тесты и выделять подготовительные
+ шаги в единые для всех тестов функции — важно для каждого автоматизатора."""
