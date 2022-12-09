@@ -1,14 +1,14 @@
 # coding=utf-8
 
 import pytest
-from api_framework.framework.constants import StatusCode
-from api_framework.configurations.data_for_tests import DataSearch, DataReverse
-from api_framework.tests.api.search import Search
-from api_framework.tests.api.reverse import Reverse
-from api_framework.tests.utils.validations import Validations
+from framework_examples.api.framework.constants import StatusCode
+from framework_examples.api.configurations.data_for_tests import DataSearch, DataReverse
+from framework_examples.api.tests.api.search import Search
+from framework_examples.api.tests.api.reverse import Reverse
+from framework_examples.api.tests.utils.validations import Validations
 
-from api_framework.tests.schemas.schema_search import ResponseSchemaSearch
-from api_framework.tests.schemas.schema_reverse import ResponseSchemaReverse
+from framework_examples.api.tests.schemas.schema_search import ResponseSchemaSearch
+from framework_examples.api.tests.schemas.schema_reverse import ResponseSchemaReverse
 
 
 class TestNominatimAPI:

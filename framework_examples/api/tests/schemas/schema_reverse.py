@@ -1,6 +1,6 @@
 from pydantic import BaseModel
 from typing import List, Optional
-from api_framework.tests.schemas.schema_address import Address
+from framework_examples.api.tests.schemas.schema_address import Address
 
 
 class Schema(BaseModel):

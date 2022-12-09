@@ -1,5 +1,5 @@
-from api_framework.framework.base_request import BaseRequest
-from api_framework.tests.utils.set_params import Params
+from framework_examples.api.framework.base_request import BaseRequest
+from framework_examples.api.tests.utils.set_params import Params
 
 
 class Search(BaseRequest):

@@ -1,4 +1,4 @@
-from api_framework.configurations.config import SearchParams, ReverseParams
+from framework_examples.api.configurations.config import SearchParams, ReverseParams
 
 
 class Params:

@@ -1,6 +1,6 @@
-from api_framework.framework.models import ResponseModel
-from api_framework.framework.constants import Configuration
-from api_framework.framework.requests import ShellRequestAPI
+from framework_examples.api.framework.models import ResponseModel
+from framework_examples.api.framework.constants import Configuration
+from framework_examples.api.framework.requests import ShellRequestAPI
 
 
 class BaseRequest:

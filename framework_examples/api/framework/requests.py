@@ -1,4 +1,4 @@
-from api_framework.framework.logger import Logger
+from framework_examples.api.framework.logger import Logger
 
 import requests
 from requests import Response

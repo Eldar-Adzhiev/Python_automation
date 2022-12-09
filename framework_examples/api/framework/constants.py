@@ -1,4 +1,4 @@
-from api_framework.configurations.config import Config
+from framework_examples.api.configurations.config import Config
 
 
 class StatusCode:

@@ -1,4 +1,4 @@
-from api_framework.framework.logger import Logger
+from framework_examples.api.framework.logger import Logger
 
 import pytest
 from _pytest.runner import CallInfo
