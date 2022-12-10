@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import pytest
-from group import Group
-from application import Application
+from barancev_python_training_course.model.group import Group
+from barancev_python_training_course.fixture.application import Application
 
 
 @pytest.fixture
