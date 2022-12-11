@@ -1,4 +1,4 @@
-from model.group import Group
+from barancev_python_training_course.model.group import Group
 
 
 def test_modify_group_name(app):
