@@ -1,0 +1,7 @@
+- project:
+    name: test_project
+    jobs:
+      - 'test-compose-{schedule}':
+         schedule: '2 2 2 2 2'
+      - 'test-compose-{schedule}':
+         schedule: '1 1 1 1 1'

@@ -1,0 +1,69 @@
+properties([disableConcurrentBuilds()])
+
+pipeline {
+    agent {
+        label 'master'
+    }
+
+    options {
+        buildDiscarder(logRotator(numToKeepStr: '3'))
+        timestamps()
+    }
+
+    environment {
+        DOCKER = "/usr/local/bin/"
+//         NETWORK_NAME = UUID.randomUUID().toString()
+    }
+
+    stages {
+
+        stage("Build") {
+            steps {
+                echo 'building..'
+                sh "docker build -t tests ."
+                echo 'build done!'
+            }
+        }
+        stage("RUN TESTS!!!!") {
+            parallel {
+                stage("Testing Api 1") {
+
+//                     agent {
+//                         label 'windows'
+//                     }
+
+                    steps {
+                        withEnv(["PATH+EXTRA=$DOCKER"]) {
+                            sh "mkdir -p tmp"
+                            sh "docker run -t --rm -e TEST_THREADS=4 -v ${WORKSPACE}:/main -v ${WORKSPACE}/tmp:/tmp tests /main/run.sh api"
+                        }
+                    }
+                }
+
+                stage("Testing Api 2") {
+
+//                      agent {
+//                         label 'linux'
+//                     }
+
+                    steps {
+                        withEnv(["PATH+EXTRA=$DOCKER"]) {
+                            sh "mkdir -p tmp"
+                            sh "docker run -t --rm -e TEST_THREADS=4 -v ${WORKSPACE}:/main -v ${WORKSPACE}/tmp:/tmp tests /main/run.sh api"
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    post {
+        always {
+            allure([
+                reportBuildPolicy: 'ALWAYS',
+                results: [[path: 'tmp/work/alluredir']]
+            ])
+            cleanWs()
+        }
+    }
+}

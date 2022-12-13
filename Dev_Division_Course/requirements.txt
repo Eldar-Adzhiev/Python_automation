@@ -1,0 +1,14 @@
+pytest==7.0.0
+pytest-xdist==2.5.0
+selenium
+webdriver-manager
+allure-pytest
+requests
+playwright
+jsonschema
+Pillow
+Faker
+beautifulsoup4
+pymysql
+sqlalchemy
+Flask

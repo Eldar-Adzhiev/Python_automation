@@ -1,0 +1,57 @@
+- scm:
+    name: main-scm
+    scm:
+      - git:
+          url: git@gitlab.com:dev-division/automation-qa-python-2022-1/CourseRepo.git
+          basedir: .
+          branches:
+            - $BRANCH
+          credentials-id: b22d5fb4-6307-448f-b96c-4ec3a8f05f45
+
+
+- job-template:
+    name: 'test-compose-{schedule}'
+    description: "JJB Project\n"
+    project-type: freestyle
+
+    scm:
+      - main-scm
+
+    wrappers:
+      - timestamps
+      - workspace-cleanup
+
+    parameters:
+      - string:
+          name: BRANCH
+          default: main
+
+    triggers:
+      - pollscm:
+          cron: '{schedule}'
+
+    builders:
+      - shell: !include-raw-escape: './builder/net.sh'
+      - inject:
+          properties-file: props
+
+      - shell: !include-raw-escape: './builder/start.sh'
+
+
+    publishers:
+      - allure:
+          results-paths:
+            - path: 'tmp/work/alluredir'
+          report-build-policy: ALWAYS
+
+      - postbuildscript:
+          builders:
+            - role: BOTH
+              build-on:
+                - SUCCESS
+                - UNSTABLE
+                - FAILURE
+                - NOT_BUILT
+                - ABORTED
+              build-steps:
+                - shell: !include-raw-escape: './builder/post.sh'
