@@ -1,8 +1,8 @@
 import json
 import os.path
-from fixture.application import Application
-from fixture.db import DbFixture
-from model.group import Group
+from barancev_python_training_course.fixture.application import Application
+from barancev_python_training_course.fixture.db import DbFixture
+from barancev_python_training_course.model.group import Group
 
 
 class AddressBook:
