@@ -1,6 +1,6 @@
 import pytest
 
-import playwright_project.config as config
+from playwright_practices import first_test_on_playwright as config
 from playwright.sync_api import Browser, BrowserContext, Page, sync_playwright
 
 

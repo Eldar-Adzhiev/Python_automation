@@ -1,6 +1,6 @@
 
 from playwright.sync_api import Page
-import playwright_project.config as config
+from playwright_practices import first_test_on_playwright as config
 
 
 class IndexPage:

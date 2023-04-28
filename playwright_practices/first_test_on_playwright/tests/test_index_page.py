@@ -1,6 +1,4 @@
-import time
-
-import playwright_project.pages as pages
+from playwright_practices import first_test_on_playwright as pages
 
 
 class TestFooter:
