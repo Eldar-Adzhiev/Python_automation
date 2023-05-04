@@ -1,4 +1,4 @@
-from playwright_practices import first_test_on_playwright as pages
+from playwright_practices.first_test_on_playwright import pages
 
 
 class TestFooter:

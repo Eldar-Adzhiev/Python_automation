@@ -9,7 +9,6 @@ class IndexPage:
 
     def open_index_page(self, page: Page) -> None:  # noqa
         page.goto(config.url.DOMAIN)
-        page.set_default_timeout()
 
     def press_link_english_lang(self, page: Page):
         page.locator(self._LINK_ENGLISH_LANG).click()
