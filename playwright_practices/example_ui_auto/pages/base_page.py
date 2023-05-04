@@ -1,7 +1,7 @@
 import allure
 from playwright.sync_api import Page, Response
 
-from components.navigation.navbar import Navbar
+from playwright_practices.example_ui_auto.components.navigation.navbar import Navbar
 
 
 class BasePage:

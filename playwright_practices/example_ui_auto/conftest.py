@@ -1,8 +1,8 @@
 import pytest
 from playwright.sync_api import Browser, Page, sync_playwright
 
-from pages.playwright_home_page import PlaywrightHomePage
-from pages.playwright_languages_page import PlaywrightLanguagesPage
+from playwright_practices.example_ui_auto.pages.playwright_home_page import PlaywrightHomePage
+from playwright_practices.example_ui_auto.pages.playwright_languages_page import PlaywrightLanguagesPage
 
 
 @pytest.fixture(scope='function')
