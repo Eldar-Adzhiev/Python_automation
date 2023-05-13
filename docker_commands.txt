@@ -1,0 +1,32 @@
+FROM - указывает на базовый образ
+WORKDIR app - принемает один арг имя раб директории
+COPY . /app - Скопируем наш репозиторий в рабочую директорию
+RUN python3 -m pip install -r requirements.txt - устанавливаем зависимости
+CMD ["python3", "-m", "pytest", "api", "--url=https://devdivision.io", "-k=test_get_chat_list"] - Команда для командной
+строки
+
+docker ps -a - выведет все запушенные контейнеры
+awk '{print $1}' - получение id контейнеров
+xargs docker rm -f - остановит и удалит контейнеры
+
+docker ps -a | awk '{print $1}' | xargs docker rm -f
+
+Очистка образов
+
+docker images | grep -v 'TAG' | awk '{print $3}' | xargs docker rmi
+
+docker images - выведем образы
+grep -v 'TAG' - удалим заголовок таблицы
+awk '{print $3}' - выберем id
+xargs docker rmi - удалим все образы
+
+docker --help
+docker ps --help
+
+docker build -t pytest . - Собрать имейдж с названием pytest .(точка) задает контекст для сборки и озночает текущую
+дирректорию
+
+docker run --name container pytest - запустить контейнер из образа под именем pytest
+
+docker build -t pytest . && docker run --name container pytest  - Собрать образ потом его запустить
+
