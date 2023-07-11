@@ -30,3 +30,5 @@ docker run --name container pytest - запустить контейнер из 
 
 docker build -t pytest . && docker run --name container pytest  - Собрать образ потом его запустить
 
+docker exec -it conteiner_name /bin/bash - Открывает терминал линукса в уже запушенном контейнере
+
