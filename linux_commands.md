@@ -328,3 +328,83 @@ echo $?
 ```CMD
 ps axuwf I grep nginx I grep -v grep I awk '{print $23' | xargs kill -15
 ``` 
+
+
+***
+
+# Bash scripting
+
+> Все bash скрипты должны заканчиваться на .sh
+
+***
+Создать фаил в vim:
+```CMD
+vim file_name.sh
+``` 
+> i - Начать редактировать в vim \
+> esc - выйти из режима редактирования \
+> :w - сохранить файл \
+> :q - выйти из vim \
+> :wq - сохранить и выйти \
+>:q! - выйти без сохранения \
+> 
+
+***
+Запустить скрипт:
+```CMD
+./file_name.sh
+``` 
+
+
+***
+Запустить скрипт:
+```CMD
+./file_name.sh
+``` 
+
+>#!/usr/bin/env bash - Шинбанговская линия. Говорит файлу как запускать файл в данном случает через bash \
+>#!/usr/bin/env python - говорит файлу запускать через python
+> 
+
+Обращение к переменным:
+```CMD
+$variable_name
+``` 
+> "${variable_name}" - Так нужно обращаться к переменной что бы учитывали все перенесы строк \
+> $variable_name - без учета спец символов 
+
+***
+Заменить подстроку root на kirillov:
+```CMD
+"${variable_name/root/kirillov}"
+``` 
+***
+Заменить все подстроки root на kirillov:
+```CMD
+"${variable_name//root/kirillov}"
+``` 
+***
+Сделать все буквы заглавными :
+```CMD
+"${variable_name^^}"
+``` 
+
+***
+Если переменной нет заменить ее :
+```CMD
+"${variable_name:-DEFAULT}"
+``` 
+***
+### Циклы:
+
+Циклы for 
+```CMD
+pids=$(ps axuwf | grep root | awk '{print $2}')
+echo $pids
+
+for pid in $pids; do
+    echo "CURR PID: ${pid}"
+done
+
+``` 
+
